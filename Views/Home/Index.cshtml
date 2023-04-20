@@ -1,0 +1,174 @@
+﻿@using Microsoft.EntityFrameworkCore;
+@using MyresumeWebApplication.Data;
+@model MyresumeInfoContext
+
+@{
+    ViewData["Title"] = "Home Page";
+    IEnumerable<MyResumeOfWPF.PDO.BasicinfoRow> basicinfoRows = await Model.BasicinfoRows.ToListAsync();
+    IEnumerable<MyResumeOfWPF.PDO.SkillRow> skillRows = await Model.SkillRows.ToListAsync();
+    IEnumerable<MyResumeOfWPF.PDO.JobRow> jobRows = await Model.JobRows.ToListAsync();
+    IEnumerable<MyResumeOfWPF.PDO.EducationRow> educationRows = await Model.EducationRows.ToListAsync();
+}
+<style>
+    section {
+        display: -webkit-flex;
+        display: flex;
+    }
+
+    /* Style the content */
+    article {
+        -webkit-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        background-color: #f1f1f1;
+        padding: 10px;
+    }
+</style>
+
+<section>
+    <img src="~/Pic/header.jpg" align="left" height="270" hspace="5" vspace="5">
+
+    <article>
+        @foreach (var item in basicinfoRows)
+        {
+            <label>姓名：</label>
+            <label>@Html.DisplayFor(modelItem => item.NameColumn)</label>
+            <br />
+            <label>年龄：</label>
+            <label>@Html.DisplayFor(modelItem => item.AgeColumn)</label>
+            <br />
+            <label>电话：</label>
+            <label>@Html.DisplayFor(modelItem => item.PhonenumberColumn)</label>
+            <br />
+            <label>邮箱：</label>
+            <label>@Html.DisplayFor(modelItem => item.EmailColumn)</label>
+            <br />
+            <label>地址：</label>
+            <label>@Html.DisplayFor(modelItem => item.AddressColumn)</label>
+            <br />
+            <label>工龄：</label>
+            <label>@Html.DisplayFor(modelItem => item.ExperienceColumn)</label>
+            <br />
+        }
+    </article>
+</section>
+
+<div>
+    @foreach (var item in skillRows)
+        {
+        <label>技能主题：</label>
+        <label>@Html.DisplayFor(modelItem => item.TopicColumn)</label>
+        <br />
+        <label>技能要点一：</label>
+        <label>@Html.DisplayFor(modelItem => item.ComponentOneColumn)</label>
+        <br />
+        <label>技能要点二：</label>
+        <label>@Html.DisplayFor(modelItem => item.ComponentTwoColumn)</label>
+        <br />
+        <label>技能要点三：</label>
+        <label>@Html.DisplayFor(modelItem => item.ComponentThreeColumn)</label>
+        <br />
+        <label>技能要点四：</label>
+        <label>@Html.DisplayFor(modelItem => item.ComponentFourColumn)</label>
+        <br />
+        <br />
+    }           
+</div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobRows.First().CompanyNameColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobRows.First().TitleColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobRows.First().DutyColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobRows.First().InputColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobRows.First().OutputColumn)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in jobRows)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyNameColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DutyColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InputColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutputColumn)
+                </td>               
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationRows.First().SchoolnameColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationRows.First().MajoyColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationRows.First().StartColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationRows.First().PeriodColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationRows.First().StageColumn)
+            </th>      
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in educationRows)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SchoolnameColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MajoyColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PeriodColumn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StageColumn)
+                </td>               
+            </tr>
+        }
+    </tbody>
+</table>
+
+@foreach (var item in educationRows)
+{
+    <label> @Html.DisplayFor(modelItem => item.SchoolnameColumn)</label>
+    <br />
+}
+
+

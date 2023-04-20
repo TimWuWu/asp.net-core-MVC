@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MyResumeOfWPF.PDO.BasicinfoRow>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhonenumberColumn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExperienceColumn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameColumn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressColumn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeColumn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailColumn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhonenumberColumn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExperienceColumn)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BasicinfoRowId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BasicinfoRowId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BasicinfoRowId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

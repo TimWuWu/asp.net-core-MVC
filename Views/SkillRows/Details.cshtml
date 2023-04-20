@@ -1,0 +1,48 @@
+﻿@model MyResumeOfWPF.PDO.SkillRow
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SkillRow</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ComponentOneColumn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ComponentOneColumn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ComponentTwoColumn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ComponentTwoColumn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ComponentThreeColumn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ComponentThreeColumn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ComponentFourColumn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ComponentFourColumn)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TopicColumn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TopicColumn)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SkillRowId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

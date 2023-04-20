@@ -1,0 +1,53 @@
+﻿@model MyResumeOfWPF.PDO.SkillRow
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SkillRow</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ComponentOneColumn" class="control-label"></label>
+                <input asp-for="ComponentOneColumn" class="form-control" />
+                <span asp-validation-for="ComponentOneColumn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComponentTwoColumn" class="control-label"></label>
+                <input asp-for="ComponentTwoColumn" class="form-control" />
+                <span asp-validation-for="ComponentTwoColumn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComponentThreeColumn" class="control-label"></label>
+                <input asp-for="ComponentThreeColumn" class="form-control" />
+                <span asp-validation-for="ComponentThreeColumn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComponentFourColumn" class="control-label"></label>
+                <input asp-for="ComponentFourColumn" class="form-control" />
+                <span asp-validation-for="ComponentFourColumn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TopicColumn" class="control-label"></label>
+                <input asp-for="TopicColumn" class="form-control" />
+                <span asp-validation-for="TopicColumn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
